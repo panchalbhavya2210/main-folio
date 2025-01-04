@@ -41,7 +41,9 @@
                         >
                         <span class="block">Front-end Web Developer.</span>
                     </h1>
-                    <p class="xl:text-[1.067vw] lg:text-[14px] text-[#424242]">
+                    <p
+                        class="xl:text-[1.067vw] lg:text-[14px] text-[#424242] lg:mt-5"
+                    >
                         A web developer who loves turning ideas into reality.
                         I'm always looking for ways to improve and grow in my
                         craft!
