@@ -3,10 +3,21 @@
     import { onMount } from "svelte";
 
     let rects = [];
-
+    let rectsMob = [];
+    let mouseWheel;
     onMount(() => {
-        // Log rects to ensure they are correctly bound
-        console.log("Rects:", rects);
+        gsap.set(rectsMob, {
+            transformOrigin: "center bottom", // Anchor for scaling
+            scaleY: 0, // Collapsed state
+        });
+
+        // Animate rects
+        gsap.to(rectsMob, {
+            scaleY: 1, // Expand to full height
+            duration: 1.5,
+            ease: "elastic.out(1)", // Elastic easing
+            stagger: 0.2, // Stagger the animation
+        });
 
         // Ensure initial styles for all rects
         gsap.set(rects, {
@@ -20,6 +31,15 @@
             duration: 1.5,
             ease: "elastic.out(1, 1)", // Elastic easing
             stagger: 0.2, // Stagger the animation
+        });
+
+        // Animate the mouse wheel scrolling
+        gsap.to(mouseWheel, {
+            y: 23,
+            repeat: -1,
+            yoyo: true,
+            duration: 0.8,
+            ease: "circ.in",
         });
     });
 </script>
@@ -42,7 +62,7 @@
                         <span class="block">Front-end Web Developer.</span>
                     </h1>
                     <p
-                        class="xl:text-[1.067vw] lg:text-[14px] text-[#424242] lg:mt-5"
+                        class="xl:text-[1.5vw] lg:text-[14px] text-[#424242] lg:mt-5"
                     >
                         A web developer who loves turning ideas into reality.
                         I'm always looking for ways to improve and grow in my
@@ -65,6 +85,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint0_linear_0_1)"
+                            bind:this={rectsMob[0]}
                         />
                         <rect
                             x="64.6667"
@@ -72,6 +93,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint1_linear_0_1)"
+                            bind:this={rectsMob[1]}
                         />
                         <rect
                             x="129.333"
@@ -79,6 +101,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint2_linear_0_1)"
+                            bind:this={rectsMob[2]}
                         />
                         <rect
                             x="194"
@@ -86,6 +109,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint3_linear_0_1)"
+                            bind:this={rectsMob[3]}
                         />
                         <rect
                             x="258.667"
@@ -93,6 +117,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint4_linear_0_1)"
+                            bind:this={rectsMob[4]}
                         />
                         <rect
                             x="323.334"
@@ -100,6 +125,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint5_linear_0_1)"
+                            bind:this={rectsMob[5]}
                         />
                         <rect
                             x="388"
@@ -107,6 +133,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint6_linear_0_1)"
+                            bind:this={rectsMob[6]}
                         />
                         <rect
                             x="453.667"
@@ -114,6 +141,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint7_linear_0_1)"
+                            bind:this={rectsMob[7]}
                         />
                         <rect
                             x="519.333"
@@ -121,6 +149,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint8_linear_0_1)"
+                            bind:this={rectsMob[8]}
                         />
                         <rect
                             x="585"
@@ -128,6 +157,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint9_linear_0_1)"
+                            bind:this={rectsMob[9]}
                         />
                         <rect
                             x="650.667"
@@ -135,6 +165,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint10_linear_0_1)"
+                            bind:this={rectsMob[10]}
                         />
                         <rect
                             x="716.334"
@@ -142,6 +173,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint11_linear_0_1)"
+                            bind:this={rectsMob[11]}
                         />
                         <rect
                             x="784"
@@ -149,6 +181,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint12_linear_0_1)"
+                            bind:this={rectsMob[12]}
                         />
                         <rect
                             x="852.667"
@@ -156,6 +189,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint13_linear_0_1)"
+                            bind:this={rectsMob[13]}
                         />
                         <rect
                             x="921.333"
@@ -163,6 +197,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint14_linear_0_1)"
+                            bind:this={rectsMob[14]}
                         />
                         <rect
                             x="990"
@@ -170,6 +205,7 @@
                             width="68.6667"
                             height="489"
                             fill="url(#paint15_linear_0_1)"
+                            bind:this={rectsMob[15]}
                         />
                         <defs>
                             <linearGradient
@@ -489,6 +525,37 @@
                             </linearGradient>
                         </defs>
                     </svg>
+                </div>
+            </div>
+            <div class="mouse-scroll max-w-full mt-10 lg:mt-56">
+                <div class="flex xl:items-end lg:flex-col lg:items-center">
+                    <svg
+                        width="26"
+                        height="48"
+                        viewBox="0 0 26 48"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect
+                            x="1"
+                            y="1"
+                            width="24"
+                            height="46"
+                            rx="12"
+                            stroke="black"
+                            stroke-width="2"
+                        />
+                        <circle
+                            bind:this={mouseWheel}
+                            cx="13"
+                            cy="13"
+                            r="5"
+                            fill="black"
+                        />
+                    </svg>
+                    <span class="xl:ml-3 max-w-fit text-[#535353]"
+                        >Scroll Or Click To Travel</span
+                    >
                 </div>
             </div>
         </div>

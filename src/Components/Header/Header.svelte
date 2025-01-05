@@ -87,7 +87,7 @@
 <!-- tll -->
 <main>
     <header
-        class="container fixed top-0 left-[50%] translate-x-[-50%] py-5 z-50 lg:py-5"
+        class="container fixed top-0 left-[50%] translate-x-[-50%] py-5 z-50 lg:py-5 bg-head"
     >
         <div class="header-nav flex justify-between">
             <div class="logo-container">
@@ -125,7 +125,7 @@
     >
         <div class="container flex justify-start relative h-full">
             <div class="body mt-[83px] text-[#fff] text-[40px] font-bold">
-                <div class="list opacity-0 mt-5">
+                <div class="list opacity-0 mt-5 translate-y-10">
                     <a href="/" onclick={menuClick}>
                         <span
                             class="head-links relative flex items-end leading-none"
@@ -147,7 +147,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="list opacity-0 mt-5">
+                <div class="list opacity-0 mt-5 translate-y-10">
                     <a href="/about" onclick={menuClick}>
                         <span
                             class="head-links relative flex items-end leading-none"
@@ -169,7 +169,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="list opacity-0 mt-5">
+                <div class="list opacity-0 mt-5 translate-y-10">
                     <a href="/projects">
                         <span
                             class="head-links relative flex items-end leading-none"
@@ -191,7 +191,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="list opacity-0 mt-5">
+                <div class="list opacity-0 mt-5 translate-y-10">
                     <a href="/contact">
                         <span
                             class="head-links relative flex items-end leading-none"
